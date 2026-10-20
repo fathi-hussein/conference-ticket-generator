@@ -1,0 +1,529 @@
+/* 1. Global Reset & Body Styling */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inconsolata', monospace, sans-serif; /* Clean tech font */
+}
+
+body {
+  /* Dark purple background with a radial gradient for depth */
+  background: radial-gradient(circle at top right, #20003b, #0d0118);
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* 2. Main Layout Container */
+.container {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 3. Header Styling */
+header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 35px;
+}
+
+header img {
+  width: 200px;
+  height: auto;
+}
+
+header p {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* 4. Heading & Description */
+.form-container {
+  width: 100%;
+  text-align: center;
+}
+
+.form-container h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.form-container > p {
+  color: #c3b8d8;
+  font-size: 1rem;
+  margin-bottom: 32px;
+}
+
+/* 5. Form Elements */
+form {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+label {
+  font-size: 0.95rem;
+  color: #e2d9f3;
+  margin-bottom: 8px;
+  margin-top: 18px;
+}
+
+/* Text & Email Inputs */
+input[type="text"],
+input[type="email"],
+form > input:not([type]) {
+  width: 100%;
+  padding: 12px 16px;
+  background-color: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+/* Hover and Focus state for Inputs */
+input[type="text"]:focus,
+input[type="email"]:focus,
+form > input:not([type]):focus {
+  border-color: #ff7d68;
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+/* 6. Custom File Upload Area */
+.input-box {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 2px dashed rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.input-box:hover {
+  border-color: #ff7d68;
+}
+
+/* Hide default file button but keep it clickable across the entire box */
+.input-box input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* File Box Content Display */
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  pointer-events: none; /* Passes clicks directly to input */
+}
+
+.placeholder div {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.placeholder img {
+  width: 24px;
+  height: 24px;
+}
+
+.placeholder p {
+  color: #c3b8d8;
+  font-size: 0.85rem;
+}
+
+/* Info Text Below File Box */
+.info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  color: #a097b6;
+  font-size: 0.75rem;
+}
+
+.info img {
+  width: 14px;
+  height: 14px;
+}
+
+/* 7. Submit Button */
+button {
+  margin-top: 28px;
+  width: 100%;
+  padding: 14px;
+  background-color: #f57461; /* Coral highlight color */
+  color: #0d0118;
+  font-weight: 800;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #e56350;
+}
+
+.attribution {
+  font-size: 0.75rem;
+  text-align: center;
+  color: #c3b8d8;
+  margin-top: 40px;
+  padding-bottom: 20px;
+}
+
+.attribution a {
+  color: #ff7d68;
+  text-decoration: none;
+}
+
+.attribution a:hover {
+  text-decoration: underline;
+}
+
+/* 1. General Success Text Styling */
+h1 {
+  color: #ffffff;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #c3b8d8;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.email{
+  color: #ff7d68;
+}
+span:hover{
+  text-decoration: underline;
+}
+/* 2. The Ticket Card Container */
+.ticket-cont {
+  position: relative;
+  width: 100%;
+  max-width: 550px;
+  height: 250px;
+  margin: 0 auto;
+  aspect-ratio: 550 / 280; /* Keeps the exact proportions of the ticket background */
+  padding: 30px;
+  box-sizing: border-box;
+  
+  /* Puts your ticket graphic image as the background */
+  background-image: url('./assets/images/pattern-ticket.svg'); /* Change to your ticket image file path if needed */
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  
+  /* Uses flexbox to space out left content and right ticket number */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 3. Left Side Content Area */
+.credential-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 75%;
+}
+
+/* Logo and Date Section */
+.conf-info img {
+  width: 140px;
+  margin-bottom: 8px;
+}
+
+.conf-info p {
+  color: #a097b6;
+  font-size: 0.85rem;
+  text-align: left;
+  margin: 0;
+}
+
+/* Person / Avatar Section */
+.person-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Avatar Image */
+.person-info img {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Name */
+.person-info h2 {
+  color: #ffffff;
+  font-size: 1.1rem;
+  text-align: left;
+  margin: 0 0 4px 0;
+}
+
+/* GitHub Icon and Username wrapper */
+.person-info div div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* GitHub Icon */
+.person-info div div img {
+  width: 16px;
+  height: 16px;
+  border-radius: 0;
+}
+
+/* GitHub Username text */
+.person-info div div p {
+  color: #a097b6;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+/* 4. Ticket Number on the Right Stub */
+.ticket-cont > h1 {
+  position: absolute;
+  right: 35px;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  color: #8a7fa8;
+  font-size: 1.2rem;
+  font-weight: normal;
+  margin: 0;
+}
+
+/* 1. Hide helper class (used to hide error messages by default) */
+.hide {
+  display: none !important;
+}
+
+.error-message,
+.error,
+.message {
+  color: #ff7d68;
+  font-size: 0.75rem;
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* 3. Turns the input border red when there's an error */
+input.error-input {
+  border-color: #ff7d68 !important;
+}
+
+body {
+  /* 1. Base dark background gradient */
+  background-color: #0d0118;
+  background-image: 
+    /* Top-right curved line decoration */
+    url('./assets/images/pattern-squiggly-line-top.svg'), 
+    /* Bottom-left curved lines decoration */
+    url('./assets/images/pattern-squiggly-line-bottom-desktop.svg'), 
+    /* Background vertical lines/grid pattern */
+    url('./assets/images/pattern-lines.svg'),
+    /* Radial gradient glow for depth */
+    radial-gradient(circle at top right, #20003b, #0d0118);
+
+  /* 2. Positioning each layer accordingly */
+  background-position: 
+    top right,          /* Top-right wave */
+    bottom left,        /* Bottom-left circles */
+    center,             /* Grid lines */
+    top right;          /* Gradient glow */
+
+  /* 3. Repeat settings */
+  background-repeat: 
+    no-repeat, 
+    no-repeat, 
+    repeat, 
+    no-repeat;
+
+  /* 4. Sizing */
+  background-size: 
+    auto, 
+    30rem, 
+    cover, 
+    cover;
+
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 20px;
+  overflow-x: hidden; /* Prevents horizontal scrolling from absolute decorations */
+}
+
+/* ==========================================
+   8. Responsive Design (Tablet & Mobile)
+   ========================================== */
+
+/* Tablet Screens (Max width: 768px) */
+@media screen and (max-width: 768px) {
+  body {
+    padding: 30px 16px;
+  }
+
+  .container {
+    max-width: 70%;
+  }
+
+  .form-container h1 {
+    font-size: 1.8rem;
+  }
+
+  .form-container > p {
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+  }
+
+  /* Make the ticket card stack or scale gracefully */
+  .ticket-cont {
+    max-width: 100%;
+    height: 220px;
+    padding: 20px;
+  }
+
+  .conf-info img {
+    width: 120px;
+  }
+
+  .person-info img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .person-info h2 {
+    font-size: 1rem;
+  }
+
+  .ticket-cont > h1 {
+    right: 25px;
+    font-size: 1rem;
+  }
+}
+
+/* Mobile Phones (Max width: 480px) */
+@media screen and (max-width: 480px) {
+  body {
+    padding: 20px 12px;
+  }
+
+  header {
+    margin-bottom: 25px;
+  }
+
+  header p {
+    font-size: 1.1rem;
+  }
+
+  .form-container h1 {
+    font-size: 1.5rem;
+  }
+
+  .form-container > p {
+    font-size: 0.9rem;
+  }
+
+  /* Smaller ticket proportions for very small phones */
+  .ticket-cont {
+    height: 200px;
+    padding: 16px;
+  }
+
+  .credential-cont {
+    width: 70%;
+  }
+
+  .conf-info img {
+    width: 100px;
+  }
+
+  .conf-info p {
+    font-size: 0.75rem;
+  }
+
+  .person-info {
+    gap: 10px;
+  }
+
+  .person-info img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .person-info h2 {
+    font-size: 0.9rem;
+  }
+
+  .person-info div div p {
+    font-size: 0.7rem;
+  }
+
+  .ticket-cont > h1 {
+    right: 15px;
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    /* Scale down background patterns further for smaller screens */
+    background-size: 
+      180px auto,     /* Smaller wave for tablets/phones */
+      220px auto,     /* Smaller circles */
+      cover, 
+      cover;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    /* Even more compact scaling for tiny mobile screens */
+    background-size: 
+      130px auto,     /* Compact wave */
+      160px auto,     /* Compact circles */
+      cover, 
+      cover;
+  }
+}

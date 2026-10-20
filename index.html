@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Conference ticket generator</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <img src="./assets/images/logo-full.svg" alt="Logo" />     
+    </header>
+
+    <div class="form-container">
+      <h1>Your Journey to Coding Conf 2025 Starts Here!</h1>
+      <p>Secure your spot at next year's biggest coding conference.</p>
+
+      <form>
+
+        <label for="avatar">Upload Avatar</label>
+        <div class="input-image">
+          <div class="input-box">
+            <input type="file" id="avatar" name="avatar" accept=".jpg, .png" />
+
+            <div class="placeholder">
+              <div>
+                <img id="icon" src="./assets/images/icon-upload.svg">
+              </div>
+               <p>Drag and drop or click to upload</p>
+            </div>
+
+          </div>
+
+          <div class="info">
+            <img src="./assets/images/icon-info.svg">
+            <span class="upload-txt">Upload your photo (JPG or PNG, max size: 500KB).</span>
+          </div>
+
+          <span id="avatar-error" class="error message hide">
+            <img src="./assets/images/icon-info.svg"> .
+          </span>
+        </div>
+
+        <label>Full Name</label>
+        <input id="name" type="text" >
+        
+
+        <label>Email Address</label>
+        <input id="email" type="email">
+        <span id="email-error" class="error-message hide">Please enter a valid email</span>
+
+        <label>GitHub Username</label>
+        <input placeholder="@github.com" id="username" type="text">
+        
+
+        <button type="submit" id="submit">Generate My Ticket</button>
+      </form>
+    </div>
+
+    <div class="success-container hide">
+      <h1>Congrats, Jonathan Kristof! Your ticket is ready.</h1>
+      <p>We've emailed your ticket to <span class="email">email</span> and will send updates in the run up to the event. </p>
+
+      <div class="ticket-cont">
+        <div class="credential-cont">
+          <div class="conf-info">
+            <img src="./assets/images/logo-full.svg">
+            <p>Jan 31, 2025 / Austin, TX</p>
+          </div>
+  
+          <div class="person-info">
+            <div>
+              <img id="upload" src="./assets/images/image-avatar.jpg">
+            </div>
+    
+            <div>
+              <h2 id="fullname">Jonathan Kristof</h2>
+              <div>
+                <img  src="./assets/images/icon-github.svg">
+                <p id="github">@jonathankristof0101</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h1>60910#</h1>
+      </div>
+    </div>
+
+  </div>
+  
+
+ 
+
+  
+  
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+    Coded by <a href="#">Fathi Hussein</a>.
+  </footer>
+
+  <script src="index.js"></script>
+</body>
+</html>
